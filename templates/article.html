@@ -1,0 +1,25 @@
+<div class="article-preview">
+    <div>
+        <h4>
+            <i class="fa fa-align-justify"></i>
+            {{dlcArticle.title}}
+        </h4>
+        <p ng-bind="dlcArticle.description | beginStringFilter:articleLength" class="article-description-preview"></p>
+    </div>
+    <div class="row article-preview-bottom">
+        <div class="col-xs-6">
+            <p>
+                <i class="fa fa-clock-o"></i>&nbsp;
+                {{dlcArticle.datetime | dlcDateFilter}}
+            </p>
+        </div>
+        <div class="col-xs-6">
+            <p class="text-right">
+                <a ng-href="/articles/{{dlcArticle.$id}}" class="dlc-link">
+                    <i class="fa fa-eye"></i>&nbsp;
+                    read
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

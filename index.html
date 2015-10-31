@@ -1,1 +1,85 @@
-Hello world
+<!DOCTYPE html>
+<html ng-app="myApp" ng-strict-di>
+<head lang="en">
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example of angular</title>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="css/main.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <div dlc-global-message-one data-message="dlcGlobalMessage.message" data-type="dlcGlobalMessage.type" data-show-time="{{dlcGlobalMessage.showTime}}"></div>
+
+        <header class="main-header hidden-xs">
+            <section class="container">
+                <h1>Welcome to our site</h1>
+            </section>
+        </header>
+
+        <nav class="dlc-main-nav">
+            <section class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-5">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/articles">
+                                    <i class="fa fa-align-justify"></i>&nbsp;
+                                    Articles
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-xs-7" ng-controller="LoginController">
+                        <ul dlc-log-info data-is-logged-in="userInfo.isUserLoggedIn" data-user-name="userInfo.user.email"
+                                data-class-info="nav navbar-nav navbar-right" data-logout="logout()">
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </nav>
+
+        <main ng-view class="container dlc-main-container"></main>
+
+    </div>
+
+    <footer class="main-footer">
+        <section class="container">
+            <p>Copyright &copy; All rights reserved</p>
+            <p>Createad by <a href="https://github.com/dmkl18" class="dlc-link-inverse">Dima Medvedsky</a></p>
+        </section>
+        <div class="cube" dlc-fixed-block-on-click="cubeInfo">
+            <div class="front">
+            </div>
+            <div class="right">
+            </div>
+            <div class="left">
+            </div>
+            <div class="back">
+            </div>
+            <div class="top">
+            </div>
+            <div class="bottom">
+            </div>
+        </div>
+        <div id="cubeInfo">
+            <p>Follow me on <a href="https://github.com/dmkl18" class="dlc-link-inverse">github</a></p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+    <script src="js/lib/angular/angular-route.min.js"></script>
+    <script src="js/lib/angular/angular-animate.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/angfull.min.js"></script>
+</body>
+</html>

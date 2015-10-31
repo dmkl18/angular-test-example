@@ -1,0 +1,48 @@
+<div>
+
+    <section ng-show="articlePrepare.showLoading" class="dlc-main-load">
+        <div ng-class="{loading: true, active: articlePrepare.showLoading}">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+
+    <section ng-show="articlePrepare.isMistake">
+        <p class="alert alert-danger" ng-bind="articlePrepare.mistakeMessage"></p>
+    </section>
+
+    <article ng-show="articlePrepare.isResult" class="article-full">
+        <header>
+            <h3>
+                {{article.title}}
+            </h3>
+        </header>
+        <section>
+            <div class="main-article-image" ng-if="article.image">
+                <img ng-src="{{article.image}}" alt="" ng-click="imageArticleView.show()" />
+            </div>
+            <p>
+                {{article.description}}
+            </p>
+        </section>
+        <footer>
+            <p class="text-right">
+                Created&nbsp;
+                <i class="fa fa-clock-o"></i>&nbsp;
+                {{article.datetime | dlcDateFilter}}
+            </p>
+        </footer>
+    </article>
+
+    <div ng-if="article.image" dlc-modal data-show="imageArticleView.isShown" class="ng-hide"
+         data-modal-title="{{article.title}}" data-close="imageArticleView.close()" data-image-window="true">
+        <div>
+            <img ng-src="{{article.image}}" alt="" />
+        </div>
+    </div>
+
+</div>

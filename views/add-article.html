@@ -1,0 +1,68 @@
+<div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-offset-1 col-md-10">
+
+            <h3><b>Add article</b></h3>
+
+            <p><b>Here you can add a new article</b></p>
+
+            <section class="add-article-section">
+                <form name="addArticleForm" ng-submit="addArticle(addArticleForm)"
+                      reactive-form data-err-block-class="help-block-error" data-clear-form="formPrepare.clearForm">
+                    <div class="form-group" touched-field-view="title" data-err-block-class="help-block-error">
+                        <div>
+                            <label for="articleTitle" class="control-label">Title:</label>
+                        </div>
+                        <div>
+                            <input id="articleTitle" type="text" name="title" class="form-control" ng-model="articleToAdd.title"
+                                   ng-model-options="{ updateOn: 'blur' }" placeholder="Enter title" required />
+                        </div>
+                        <div class="help-block help-block-error">
+                            <p ng-show="addArticleForm.title.$error.required">The field is required</p>
+                        </div>
+                    </div>
+                    <div ng-if="formPrepare.withImage" class="form-group">
+                        <div dlc-image-preview data-image-value="articleToAdd" data-message="dlcGlobalMessage"
+                                data-property-name="image" data-clear-image="formPrepare.clearForm"></div>
+                    </div>
+                    <div class="form-group" touched-field-view="description" data-err-block-class="help-block-error">
+                        <div>
+                            <label for="articleDescription" class="control-label">Description:</label>
+                        </div>
+                        <div>
+                            <textarea id="articleDescription" name="description" class="form-control" ng-model="articleToAdd.description"
+                                      ng-model-options="{ updateOn: 'blur' }" placeholder="Enter description" required >
+                            </textarea>
+                        </div>
+                        <div class="help-block help-block-error">
+                            <p ng-show="addArticleForm.description.$error.required">The field is required</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-lg btn-default-dlc">Add</button>
+                            <button type="button" class="btn btn-lg btn-danger" ng-click="clearArticleForm()">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <div dlc-modal data-show="actionInfo.isAddingProcess" class="ng-hide" data-modal-title="Waiting..." data-not-need-to-close-by-event="true">
+        <div class="modal-buttons">
+            <div class="text-center">
+                <div ng-class="{loading: true, active: actionInfo.isAddingProcess}">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

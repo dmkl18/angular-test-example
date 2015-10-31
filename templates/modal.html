@@ -1,0 +1,14 @@
+<div class="dlc-modal" ng-show="isShown">
+    <div ng-if="notNeedToCloseByEvent!='true'" class="dlc-modal-overlay" ng-click="close()"></div>
+    <div ng-if="notNeedToCloseByEvent=='true'" class="dlc-modal-overlay"></div>
+    <div class="dlc-modal-window">
+        <div class="dlc-modal-header">
+            <h4>{{header}}</h4>
+            <button ng-if="notNeedToCloseByEvent!='true'" type="button" class="btn btn-danger btn-sm btn-dlc-delete" ng-click="close()">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <div class="dlc-modal-body" ng-transclude>
+        </div>
+    </div>
+</div>

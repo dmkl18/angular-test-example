@@ -1,0 +1,33 @@
+<div>
+
+    <section ng-show="articlesPrepare.showLoading" class="dlc-main-load">
+        <div ng-class="{loading: true, active: articlesPrepare.showLoading}">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+
+    <section ng-show="articlesPrepare.isMistake">
+        <p class="alert alert-danger" ng-bind="articlesPrepare.mistakeMessage"></p>
+    </section>
+
+    <section ng-show="articlesPrepare.isEmpty">
+        <p class="alert alert-warning" ng-bind="articlesPrepare.emptyMessage"></p>
+    </section>
+
+    <section ng-show="articlesPrepare.isResult">
+        <div ng-repeat="arls in articles.values track by $index" class="row">
+            <div ng-repeat="article in arls track by $index" class="col-sm-6">
+                <div dlc-article="article" data-article-length="{{articlesPrepare.baseDescriptionLength}}"></div>
+            </div>
+        </div>
+
+        <div dlc-pagination="articles.pages" data-page="articles.page"></div>
+
+    </section>
+
+</div>

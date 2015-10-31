@@ -1,0 +1,26 @@
+<div ng-show="pages>1" class="{{btnBlockClass}} dlc-pagination">
+    <a ng-if="pages>=firstLastPagsStartOn&&page!=1" ng-href="{{baseHref}}1" class="{{btnClass}}">
+        <i class="fa fa-angle-double-left"></i>
+    </a>
+    <button ng-if="pages>=firstLastPagsStartOn&&page==1" class="{{btnClass}}" disabled>
+        <i class="fa fa-angle-double-left"></i>
+    </button>
+    <a ng-if="page!=1" ng-href="{{baseHref}}{{page-1}}" class="{{btnClass}}">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    <button ng-if="page==1" class="{{btnClass}}" disabled>
+        <i class="fa fa-angle-left"></i>
+    </button>
+    <a ng-if="page!=pages&&pages!=0" ng-href="{{baseHref}}{{page+1}}" class="{{btnClass}}">
+        <i class="fa fa-angle-right"></i>
+    </a>
+    <button ng-if="page==pages" class="{{btnClass}}" disabled>
+        <i class="fa fa-angle-right"></i>
+    </button>
+    <a ng-if="pages>=firstLastPagsStartOn&&page!=pages" ng-href="{{baseHref}}{{pages}}" class="{{btnClass}}">
+        <i class="fa fa-angle-double-right"></i>
+    </a>
+    <button ng-if="pages>=firstLastPagsStartOn&&page==pages" class="{{btnClass}}" disabled>
+        <i class="fa fa-angle-double-right"></i>
+    </button>
+</div>

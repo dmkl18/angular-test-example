@@ -1,0 +1,46 @@
+<div>
+
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <section class="login-section">
+                <h3>Sign in</h3>
+                <form name="loginForm" ng-submit="login(loginForm)" novalidate
+                      reactive-form data-err-block-class="help-block-error" data-clear-form="formPrepare.clearForm">
+                    <div class="form-group" touched-field-view="email" data-err-block-class="help-block-error">
+                        <div>
+                            <label for="userEmail" class="control-label">Email address:</label>
+                        </div>
+                        <div>
+                            <input id="userEmail" type="email" name="email" class="form-control" ng-model="user.email" ng-model-options="{ updateOn: 'blur' }" required />
+                        </div>
+                        <div class="help-block help-block-error">
+                            <p ng-show="loginForm.email.$error.required">The field is required</p>
+                            <p ng-show="loginForm.email.$error.email">Wrong email</p>
+                        </div>
+                    </div>
+                    <div class="form-group" touched-field-view="password" data-err-block-class="help-block-error">
+                        <div>
+                            <label for="userPassword" class="control-label">Password:</label>
+                        </div>
+                        <div>
+                            <input id="userPassword" name="password" type="password" class="form-control" ng-model="user.password" ng-model-options="{ updateOn: 'blur' }" required />
+                        </div>
+                        <div class="help-block help-block-error">
+                            <p ng-show="loginForm.password.$error.required">The field is required</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div ng-hide="userActions.isLoginProccess">
+                            <button class="btn btn-lg btn-default-dlc">Login</button>
+                            <button type="button" class="btn btn-lg btn-danger" ng-click="clearLoginForm()">Cancel</button>
+                        </div>
+                        <div ng-show="userActions.isLoginProccess" class="text-primary loading-big">
+                            <i class="fa fa-cog fa-spin"></i>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+</div>
